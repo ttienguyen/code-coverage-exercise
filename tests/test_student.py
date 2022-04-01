@@ -40,5 +40,23 @@ def test_get_student_with_more_classes():
         "sophomore",
         ["mathematics", "foundations of computing"]
     )
+    anne = Student(
+        "Anne Byron",
+        "senior",
+        ["theory of religion", "theory of morality"]
+    )
+    # act
+    result = get_student_with_more_classes(charles, ada)
+    result_two = get_student_with_more_classes(anne, charles)
 
     # TODO: write assertions
+    assert result == ada
+    assert result_two == anne
+
+def test_no_course_returns_empty_list():
+    # arrange
+    charles = Student("Charles Babbage", "senior", [])
+    # act
+    result = charles.courses
+    # assert
+    assert result == []
